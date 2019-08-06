@@ -1,0 +1,131 @@
+<% include partials/header %>
+    <div class="container">
+        <div class="row">
+            <!-- FORM -->
+            <div class="container">
+                <div class="row">
+                    <div class="">
+                        <form action="/add" method="POST">
+                            <div class="row">
+                                    <div class="col-md-3">
+                                        <b>Nombre:</b>
+                                    </div>
+                                    <div class="col-md-9">
+                                            <input type="text" name="Nombre" id="Nombre" placeholder="Nombres" class="form-control">
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                        <div class="col-md-3">
+                                            <b>Email:</b>
+                                        </div>
+                                        <div class="col-md-9">
+                                                <input type="email" name="Email" id="Email" placeholder="Email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                            <div class="col-md-3">
+                                                <b>Teléfono:</b>
+                                            </div>
+                                            <div class="col-md-9">
+                                                    <input type="text" name="Telefono" id="Telefono" placeholder="Telefono" class="form-control">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                                <div class="col-md-3">
+                                                    <b>Estado civil:</b>
+                                                </div>
+                                                <div class="col-md-9">
+                                                        <select class="form-control" id="EstadoCivil" name="EstadoCivil">
+                                                        <option value="SOLTERO">SOLTERO</option>
+                                                        <option value="CASADO">CASADO</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <br>
+                            <div class="row">
+                                <div class="col-md-3">
+                                <label for="EstadoCivil"><b><span class="">¿Tiene hijos?</span></b></label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Hijos" id="Hijos" value="Si" checked>
+                                    <label class="form-check-label" for="Hijos">
+                                        Si
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="Hijos" id="Hijos" value="No">
+                                    <label class="form-check-label" for="Hijo">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                <label for="EstadoCivil"><b><span class="">Intereses</span></b></label>
+                                <br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Intereses" id="Intereses" value="Libros">
+                                    <label class="form-check-label" for="Intereses">Libros</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Intereses" id="Intereses" value="Musica">
+                                    <label class="form-check-label" for="Intereses">Musica</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Intereses" id="Intereses" value="Deportes">
+                                    <label class="form-check-label" for="Intereses">Deportes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="Intereses" id="Intereses" value="Otros">
+                                    <label class="form-check-label" for="Intereses">Otros</label>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="ror">
+                                    <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-success">Agregar</button>
+                                        
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- TABLE -->
+            <div class="col-md-9">
+                <table class="table text-center table-hover">
+                    <thead class="thead-dark">
+                        <th>#</th>
+                        <th>Nombres</th>
+                        <th>Emai</th>
+                        <th>Telefono</th>
+                        <th>Estado civil</th>
+                        <th>Hijos</th>
+                        <th>Intereses</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<datos.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= datos[i].Nombre %></td>
+                                <td><%= datos[i].Email %></td>
+                                <td><%= datos[i].Telefono %></td>
+                                <td><%= datos[i].EstadoCivil %></td>
+                                <td><%= datos[i].Hijos %></td>
+                                <td><%= datos[i].Intereses %></td>
+                                <td><a href="/edit/<%= datos[i]._id %>" class="btn btn-dark btn-block">Editar</a> <a href="/delete/<%= datos[i]._id %>" class="btn btn-danger btn-block">Eliminar</a></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<% include partials/footer %>
+

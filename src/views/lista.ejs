@@ -1,0 +1,38 @@
+<% include partials/header %>
+    <div class="container">
+        <div class="row">
+            <!-- FORM -->
+            <!-- TABLE -->
+            <div class="col-md-9">
+                <table class="table table-dark table-bordered table-hover">
+                    <thead>
+                        <th>#</th>
+                        <th>Nombres</th>
+                        <th>Emai</th>
+                        <th>Telefono</th>
+                        <th>Estado civil</th>
+                        <th>Hijos</th>
+                        <th>Intereses</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i<datos.length; i++) { %>
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= datos[i].Nombre %></td>
+                                <td><%= datos[i].Email %></td>
+                                <td><%= datos[i].Telefono %></td>
+                                <td><%= datos[i].EstadoCivil %></td>
+                                <td><%= datos[i].Hijos %></td>
+                                <td><%= datos[i].Intereses %></td>
+                                <td><a href="/edit/<%= datos[i]._id %>" class="btn btn-dark btn-block">Editar</a> <a href="/delete/<%= datos[i]._id %>" class="btn btn-danger btn-block">Eliminar</a></td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<% include partials/footer %>
+
